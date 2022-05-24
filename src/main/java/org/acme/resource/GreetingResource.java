@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.resource;
 
 import java.util.Optional;
 
@@ -9,6 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.acme.service.GreetingService;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 @Path("/hello")
