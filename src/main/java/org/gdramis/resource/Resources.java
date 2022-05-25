@@ -1,4 +1,4 @@
-package org.acme.resource;
+package org.gdramis.resource;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

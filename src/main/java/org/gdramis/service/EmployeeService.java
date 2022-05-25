@@ -1,11 +1,15 @@
-package org.acme.service;
+package org.gdramis.service;
+
+import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import org.acme.model.Employee;
+import org.gdramis.model.Employee;
+
 
 @ApplicationScoped
 public class EmployeeService {
@@ -25,5 +29,12 @@ public class EmployeeService {
     public Employee getEmployee(Integer id) {
         return em.find(Employee.class, id);
     }
+
+    @Transactional 
+    public List<Employee> getAllEmployee() {
+        TypedQuery<Employee> query = em.createNamedQuery("findAllEmployee", Employee.class);
+        return query.getResultList();
+    }
+
 
 }

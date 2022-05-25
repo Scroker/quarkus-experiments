@@ -16,7 +16,7 @@ public class EmployeeResourceTest {
           .when().get("/api/employee/0")
           .then()
              .statusCode(200)
-             .body(is("Giorgio Dramis"));
+             .body(is("{\"id\":0,\"name\":\"Giorgio\",\"surname\":\"Dramis\"}"));
     }
    
     @Test
@@ -25,7 +25,7 @@ public class EmployeeResourceTest {
           .when().get("/api/employee/1")
           .then()
             .statusCode(200)
-            .body(is("Bianca Buzzi"));
+            .body(is("{\"id\":1,\"name\":\"Bianca\",\"surname\":\"Buzzi\"}"));
     }
 
 }

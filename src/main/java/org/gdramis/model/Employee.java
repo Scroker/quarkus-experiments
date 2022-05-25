@@ -1,27 +1,40 @@
-package org.acme.model;
+package org.gdramis.model;
 
-import java.io.Serializable;
-
+import javax.json.bind.annotation.JsonbCreator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
-@XmlRootElement
-public class Employee implements Serializable {
+@NamedQueries(
+    @NamedQuery(name = "findAllEmployee", query = "SELECT e FROM Employee e")
+)
+public class Employee {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
-    String name;
+    private String name;
 
-    String surname;
+    private String surname;
+    
+    public Employee() {
+        super();
+    };
 
-    public String getId(){
-        return this.name;
+    @JsonbCreator
+    public Employee(Integer id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Integer getId(){
+        return this.id;
     }
 
     public String getName(){

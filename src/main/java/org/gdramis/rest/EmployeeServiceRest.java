@@ -1,4 +1,7 @@
-package org.acme.rest;
+package org.gdramis.rest;
+
+import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -7,8 +10,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.acme.model.Employee;
-import org.acme.service.EmployeeService;
+import org.gdramis.model.Employee;
+import org.gdramis.service.EmployeeService;
 
 @Path("api/employee")
 public class EmployeeServiceRest {
@@ -17,11 +20,17 @@ public class EmployeeServiceRest {
     EmployeeService eservice;
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("{id}")
-    public String getEmployee(@PathParam("id") Integer id) {
+    public Employee getEmployee(@PathParam("id") Integer id) {
         Employee employee = eservice.getEmployee(id);
-        return employee.getName() + " " + employee.getSurname();
+        return employee;
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Employee> getAllEmployee() {
+        List<Employee> employeeList = eservice.getAllEmployee();
+        return employeeList;
+    }
 }
