@@ -49,13 +49,19 @@
     <!-- Hibernate ORM specific dependencies -->
     <dependency>
         <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-hibernate-orm</artifactId>
+        <artifactId>quarkus-hibernate-orm-panache</artifactId>
     </dependency>
     <!-- JDBC driver dependencies -->
     <dependency>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-jdbc-h2</artifactId>
     </dependency>
+    <!-- OPEN API driver dependencies -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+    <!-- JSONB dependencies -->
     <dependency>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-resteasy-reactive-jsonb</artifactId>
