@@ -1,7 +1,6 @@
 package org.gdramis.rest;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
